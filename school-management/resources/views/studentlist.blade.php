@@ -65,11 +65,22 @@
 <div class="card mb-3">
     <img height="265px" src="https://allea.org/wp-content/uploads/2019/06/shutterstock_520698799small-1500x430.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">Lijst met studenten</h5>
-        <p class="card-text">Hier vind u alle informatie en gegevens van de studenten.</p>
+        @role('Student')
+            <h5 class="card-title">Welkom op het studenten systeem!</h5>
+            <p class="card-text">Hier vind je je voortgang en je eigen gegevens.</p>
+        @endrole
+        @role('Docent')
+            <h5 class="card-title">Lijst met studenten</h5>
+            <p class="card-text">Hier vind u alle informatie en gegevens van de studenten.</p>
+        @endrole
+
+        @role('Bestuur')
+            <h5 class="card-title">Lijst met studenten</h5>
+            <p class="card-text">Hier vind u alle informatie en gegevens van de studenten.</p>
+        @endrole
 
 
-        @if(auth()->user()->role_id == 2)
+        @role('Docent')
             <div class="form-group">
                 <select class="form-control" type="text" id="myInput">
                     <option value="">Kies de klas...</option>
@@ -106,9 +117,9 @@
             @endforeach
             </tbody>
         </table>
-        @endif
+        @endrole
 
-        @if(auth()->user()->role_id == 3)
+        @role('Bestuur')
             <h3>Filter</h3>
             <div class="form-group">
                 <select class="form-control" type="text" id="myInput2">
@@ -176,7 +187,7 @@
                 @endforeach
                 </tbody>
             </table>
-        @endif
+        @endrole
     </div>
 </div>
 <script>

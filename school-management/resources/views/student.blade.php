@@ -26,18 +26,15 @@
             <section class="col">
                 @include("studentlist")
             </section>
-                @if(auth()->user()->role_id == 1)
+                @role('Student')
                     <section class="col">
                         @include("studentedit")
                     </section>
-                @else
-                    <section class="col">
+                @endrole
 
-                    </section>
-                @endif
         </div>
     </div>
-@elseif(($layout == 'create') && (auth()->user()->role_id == 2) || (auth()->user()->role_id == 3))
+@elseif(($layout == 'create') && (auth()->user()->roles == 'Docent') || (auth()->user()->roles == 'Bestuur'))
     <div class="container-fluid mt-4">
         <div class="row">
             <section class="col">

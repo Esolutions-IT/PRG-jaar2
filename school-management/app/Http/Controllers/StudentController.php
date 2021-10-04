@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\App;
 use Dompdf\Options;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 
 class StudentController extends Controller
@@ -27,6 +29,19 @@ class StudentController extends Controller
      */
     public function index()
     {
+//        Permission::create(['name'=>'Student list']);
+//        Role::create(['name'=>'Student']);
+
+//        $role = Role::findbyId(2);
+
+//        $permission = Permission::findById(1);
+
+//        $role->givePermissionTo($permission);
+
+//        auth()->user()->assignRole('Bestuur');
+
+//        return auth()->user()->roles;
+
         $students = Student::all();
         $data = DB::table('users')
             ->join('classes','classes.user_id', '=', 'users.id')

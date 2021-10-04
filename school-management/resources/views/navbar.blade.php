@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    @if(auth()->user()->role_id == 1)
+    @role('Student')
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="nav-link" href="{{url('/home')}}">Home <span class="sr-only">(current)</span></a>
@@ -18,8 +18,8 @@
 
             </div>
         </div>
-
-    @elseif(auth()->user()->role_id == 2)
+    @endrole
+    @role('Docent')
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="nav-link" href="{{url('/home')}}">Home <span class="sr-only">(current)</span></a>
@@ -34,8 +34,8 @@
 
             </div>
         </div>
-
-    @elseif(auth()->user()->role_id == 3)
+    @endrole
+    @role('Bestuur')
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav">
             <a class="nav-link" href="{{url('/home')}}">Home <span class="sr-only">(current)</span></a>
@@ -50,5 +50,5 @@
 
         </div>
     </div>
-    @endif
+    @endrole
 </nav>
