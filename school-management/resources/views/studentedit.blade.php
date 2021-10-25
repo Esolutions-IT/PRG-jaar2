@@ -19,15 +19,15 @@
                         </div>
                         <div class="form-group">
                             <label>Adres</label>
-                            <input value="{{auth()->user()->adres}}" name="adres" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Voornaam" required>
+                            <input value="{{auth()->user()->adres}}" name="adres" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adres" required>
                         </div>
                         <div class="form-group">
                             <label>Postcode</label>
-                            <input value="{{auth()->user()->postcode}}" name="postcode" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Voornaam" required>
+                            <input value="{{auth()->user()->postcode}}" name="postcode" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Postcode" required>
                         </div>
                         <div class="form-group">
                             <label>Plaats</label>
-                            <input value="{{auth()->user()->plaats}}" name="plaats" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Voornaam" required>
+                            <input value="{{auth()->user()->plaats}}" name="plaats" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Plaats" required>
                         </div>
                         <input type="submit" class="btn btn-info" value="Update">
                         <input type="reset" class="btn btn-warning" value="Reset">

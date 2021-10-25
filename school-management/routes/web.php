@@ -44,6 +44,8 @@ Route::get('/users/edit/{id}',[GebruikerController::class, 'edit']);
 
 Route::post('/users/edit',[StudentController::class, 'edit_data']);
 
+Route::get('/error',[StudentController::class, 'edit_data']);
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -223,15 +223,24 @@ class StudentController extends Controller
         $postcode = $request->input('postcode');
         $plaats = $request->input('plaats');
 
-        DB::table('users')->where('id',auth()->user()->id)->update(array(
-            'name'=>$name,
-            'email'=>$email,
-            'adres'=>$adres,
-            'plaats'=>$plaats,
-            'postcode'=>$postcode,
-        ));
+        $date = auth()->user()->created_at;
+        $date = strtotime($date);
+        $date = strtotime("+7 day", $date);
+//        dd(date('M d, Y', $date));
 
+        if(date('M d, Y') > date('M d, Y', $date)) {
+            DB::table('users')->where('id', auth()->user()->id)->update(array(
+                'name' => $name,
+                'email' => $email,
+                'adres' => $adres,
+                'plaats' => $plaats,
+                'postcode' => $postcode,
+            ));
+        }else{
+            echo "<h1>Je account bestaat nog niet meer als 3 dagen. Als je account 3 dagen bestaat kun je je gegevens aanpassen.</h1>";
+        }
         return redirect('/home');
+
     }
 
 }
